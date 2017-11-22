@@ -11,11 +11,11 @@ export class AuthService {
     domain: 'ryanhellowell.auth0.com',
     responseType: 'token id_token',
     audience: 'https://ryanhellowell.auth0.com/userinfo',
-    redirectUri: 'http://localhost:4200/callback',      
+    redirectUri: 'https://se3316-lab5-rhellowe.c9users.io/logged',      
     scope: 'openid'
   });
 
-  constructor(public router: Router) {}
+  constructor() {}
 
   public login(): void {
     this.auth0.authorize();

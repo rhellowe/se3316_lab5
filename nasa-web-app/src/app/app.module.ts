@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule,ReactiveFormsModule} from "@angular/forms";
+import {RouterModule,Routes} from "@angular/router";
 
 
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { NotLoggedPageComponent } from './not-logged-page/not-logged-page.compon
 import {AuthService} from "./auth.service";
 import {ImageService} from "./image.service";
 import { AuthPageComponent } from './auth-page/auth-page.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { AuthPageComponent } from './auth-page/auth-page.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [AuthService,ImageService],
   bootstrap: [AppComponent]
