@@ -13,6 +13,7 @@ import {ImageService} from "./image.service";
 import { AuthPageComponent } from './auth-page/auth-page.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ViewCollectionsComponent } from './view-collections/view-collections.component';
+import {CollectionService} from "./collection.service"
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { ViewCollectionsComponent } from './view-collections/view-collections.co
     RouterModule,
     AppRoutingModule
   ],
-  providers: [AuthService,ImageService],
+  providers: [AuthService,ImageService,CollectionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

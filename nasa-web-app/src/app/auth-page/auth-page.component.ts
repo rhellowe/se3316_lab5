@@ -8,8 +8,10 @@ import {ImageService} from "../image.service"
 })
 export class AuthPageComponent implements OnInit {
  images: any[];
+ collection: String[];
+count:number;
  imagesFound: boolean=false;
-  constructor(private _imageService:ImageService) { }
+  constructor(private _imageService:ImageService) {this.count=0;}
 
 searchImages(query:string){
   return this._imageService.getImage(query).subscribe(
@@ -29,6 +31,14 @@ searchImages(query:string){
   
   handleError(error){
     console.log(error);
+  }
+  addImage(link){
+    //this.collection[this.count]=link.href;
+    //this.count++;
+    console.log(link.href);
+  }
+  confirmCollection(username:String,title:String,desc:String,_public:Boolean,_imageList:String[]){
+    
   }
 
 }

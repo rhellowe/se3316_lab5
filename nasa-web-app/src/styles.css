@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+body, html{
+    height: 100%;
+    background-color: black;
+}
+body {
+    background-image: url("earth.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-left: 50px;
+    padding-right: 50px;
+    color: #ffffff;
+}
