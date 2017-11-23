@@ -12,6 +12,7 @@ import {AuthService} from "./auth.service";
 import {ImageService} from "./image.service";
 import { AuthPageComponent } from './auth-page/auth-page.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { ViewCollectionsComponent } from './view-collections/view-collections.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { AppRoutingModule } from './/app-routing.module';
     AppComponent,
     MyHeaderComponent,
     NotLoggedPageComponent,
-    AuthPageComponent
+    AuthPageComponent,
+    ViewCollectionsComponent
   ],
   imports: [
     BrowserModule,
