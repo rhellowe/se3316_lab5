@@ -1,1 +1,9 @@
 <h3>Welcome to Collections!</h3>
+
+<div *ngFor="let collection of collections" class="collection-container">
+    <button (click)="showCollection(collection)">{{collection.title}}</button>
+    
+    <div *ngFor="let href of collection.imageList">
+        <img  *ngIf="titleClicked(collection._id)" src={{href}}>
+    </div>
+</div>

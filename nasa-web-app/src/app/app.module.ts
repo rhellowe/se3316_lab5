@@ -2,8 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule,ReactiveFormsModule} from "@angular/forms";
-import {RouterModule,Routes} from "@angular/router";
-
+import {RouterModule,Routes,Router} from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { MyHeaderComponent } from './my-header/my-header.component';
@@ -13,7 +12,10 @@ import {ImageService} from "./image.service";
 import { AuthPageComponent } from './auth-page/auth-page.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ViewCollectionsComponent } from './view-collections/view-collections.component';
-import {CollectionService} from "./collection.service"
+import {CollectionService} from "./collection.service";
+import { MycollectionsComponent } from './mycollections/mycollections.component';
+
+
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import {CollectionService} from "./collection.service"
     MyHeaderComponent,
     NotLoggedPageComponent,
     AuthPageComponent,
-    ViewCollectionsComponent
+    ViewCollectionsComponent,
+    MycollectionsComponent
   ],
   imports: [
     BrowserModule,

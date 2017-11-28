@@ -1,8 +1,10 @@
-h3 {
+.login-container {
     font-family: "Roboto", sans-serif;
-    text-align: right;
+    text-align: center;
 }
-
+.about-container {
+    text-align: center;
+}
 button {
     background-color: white;
     border: none;

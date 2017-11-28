@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ImageService} from "../image.service"
+import {ImageService} from "../image.service";
+import {AuthService} from "../auth.service";
+import {CollectionService} from "../collection.service";
 
 @Component({
   selector: 'auth-page',
@@ -11,7 +13,7 @@ export class AuthPageComponent implements OnInit {
  collection: String[];
 count:number;
  imagesFound: boolean=false;
-  constructor(private _imageService:ImageService) {this.count=0;}
+  constructor(private _imageService:ImageService, private auth:AuthService, private collectionService:CollectionService) {this.count=0;}
 
 searchImages(query:string){
   return this._imageService.getImage(query).subscribe(
@@ -21,6 +23,7 @@ searchImages(query:string){
     )
 }
   ngOnInit() {
+    
   }
   
   handleSuccess(data){
@@ -33,12 +36,13 @@ searchImages(query:string){
     console.log(error);
   }
   addImage(link){
-    //this.collection[this.count]=link.href;
-    //this.count++;
-    console.log(link.href);
+    this.collection[this.count]=link.href;
+    this.count++;
+    console.log(this.collection);
   }
-  confirmCollection(username:String,title:String,desc:String,_public:Boolean,_imageList:String[]){
-    
+  confirmCollection(){
+    this.collectionService.createCollection("hellowellry@gmail.com","test7","seventh test",true,["https://images-assets.nasa.gov/image/PIA13517/collection.json"])
   }
+  //username:String,title:String,desc:String,_public:Boolean,_imageList:String[]
 
 }

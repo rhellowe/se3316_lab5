@@ -8,7 +8,7 @@ var Collection=require("./src/app/collectionModel");
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-var port=process.env.PORT||8080;
+var port=8081;
 
 var router=express.Router();
 
@@ -23,6 +23,9 @@ router.get("/",function(req,res){
 
 router.route("/collections")
 .post(function(req,res){
+    res.setHeader("Access-Control-Allow-Origin","*");
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS');
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     var collection= new Collection();
     collection.username=req.body.username;
     collection.title=req.body.title;
@@ -39,12 +42,24 @@ router.route("/collections")
 })
 
 .get(function(req,res){
-    Collection.find(function(err, collections) {
+    res.setHeader("Access-Control-Allow-Origin","*");
+    Collection.find({'isPublic':true}, function(err, collections) {
             if (err){
                 res.send(err);}
 
             res.json(collections);
         });
+});
+router.route("/collections/:username")
+.get(function(req,res){
+    res.setHeader("Access-Control-Allow-Origin","*");
+    Collection.find({username:req.params.username}, function(err,collections){
+        if(err){
+            res.send(err);}
+                res.json(collections);
+            
+    });
+    
 });
 router.route("/collections/:collection_id")
   .get(function(req, res) {
@@ -55,7 +70,7 @@ router.route("/collections/:collection_id")
         });
     })
     .put(function(req,res){
-        Collection.findById(req.params.bear_id, function(err, collection) {
+        Collection.findById(req.params.collection_id, function(err, collection) {
             if(err){res.send(err);}
             collection.title=req.body.title;
             collection.desc=req.body.desc;
