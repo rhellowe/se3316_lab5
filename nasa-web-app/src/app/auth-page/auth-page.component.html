@@ -3,16 +3,16 @@
 <input class="search" [(ngModel)]="searchQuery" placeholder="Search for Images">
 <button (click)="searchImages(searchQuery)" type="button">Find Images</button>
 <br/>
-<p>Title: </p><input placeholder="Title">
+<p>Title: </p><input [(ngModel)]="collectionTitle" placeholder="Title">
 <br/>
-<p>Description: </p><input placeholder="Description">
+<p>Description: </p><input [(ngModel)]="collectionDesc" placeholder="Description">
 <br/>
-<p>Is It Public? (Y/N): </p><input placeholder="(Y/N)">
+<p>Is It Public? (Y/N): </p><input [(ngModel)]="isPublic" placeholder="(Y/N)">
 <br/>
-<button (click)="confirmCollection()">Confirm Collection</button>
+<button (click)="confirmCollection(this.auth.getUsername,collectionTitle,collectionDesc,isPublic,this.collection)">Confirm Collection</button>
 <div *ngFor= "let image of images" class=image-container>
     <div class="images" *ngFor="let link of image.links">
-        <img (click)="addImage(link)" src="{{link.href}}">
+        <img (click)="this.addImage(link)" src="{{link.href}}">
     </div>
     <div *ngFor="let data of image.data">
         <p> Description: {{data.description}}</p>

@@ -14,6 +14,9 @@ import { AppRoutingModule } from './/app-routing.module';
 import { ViewCollectionsComponent } from './view-collections/view-collections.component';
 import {CollectionService} from "./collection.service";
 import { MycollectionsComponent } from './mycollections/mycollections.component';
+import { DmcaFooterComponent } from './dmca-footer/dmca-footer.component';
+import { DmcaPolicyComponent } from './dmca-policy/dmca-policy.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 
 
@@ -25,7 +28,10 @@ import { MycollectionsComponent } from './mycollections/mycollections.component'
     NotLoggedPageComponent,
     AuthPageComponent,
     ViewCollectionsComponent,
-    MycollectionsComponent
+    MycollectionsComponent,
+    DmcaFooterComponent,
+    DmcaPolicyComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,

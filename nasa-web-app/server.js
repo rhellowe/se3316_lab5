@@ -24,8 +24,8 @@ router.get("/",function(req,res){
 router.route("/collections")
 .post(function(req,res){
     res.setHeader("Access-Control-Allow-Origin","*");
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS');
-	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS');
+	res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     var collection= new Collection();
     collection.username=req.body.username;
     collection.title=req.body.title;

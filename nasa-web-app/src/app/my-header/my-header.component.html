@@ -5,7 +5,8 @@ NASA Image Search
 </h1>
 </div>
 <br/>
-<button class="toolbar_button" routerLink="/logged">Search for Images</button><button class="toolbar_button" routerLink="/viewCollections">View Public Collections</button><button class="toolbar_button" routerLink="/myCollections">View My Collections</button>
+<button class="toolbar_button" *ngIf="this.auth.isAuthenticated()" routerLink="/logged">Search for Images</button><button class="toolbar_button" routerLink="/viewCollections">View Public Collections</button><button class="toolbar_button" *ngIf="this.auth.isAuthenticated()" routerLink="/myCollections">View My Collections</button> <button class="toolbar_button" *ngIf="this.auth.isAuthenticated()" (click)="this.auth.logout()">Logout</button><button class="toolbar_button" *ngIf="!this.auth.isAuthenticated()" (click)="this.auth.login()">Login</button>
+<button class="toolbar_button" routerLink="">About</button>
 <br/><br/><br/>
 
 

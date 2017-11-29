@@ -13,7 +13,10 @@ export class AuthPageComponent implements OnInit {
  collection: String[];
 count:number;
  imagesFound: boolean=false;
-  constructor(private _imageService:ImageService, private auth:AuthService, private collectionService:CollectionService) {this.count=0;}
+  constructor(private _imageService:ImageService, private auth:AuthService, private collectionService:CollectionService) {
+    this.count=0;
+    this.collection=[];
+  }
 
 searchImages(query:string){
   return this._imageService.getImage(query).subscribe(
@@ -40,9 +43,14 @@ searchImages(query:string){
     this.count++;
     console.log(this.collection);
   }
-  confirmCollection(){
-    this.collectionService.createCollection("hellowellry@gmail.com","test7","seventh test",true,["https://images-assets.nasa.gov/image/PIA13517/collection.json"])
+  confirmCollection(username:String,title:String,desc:String,_public:String,_imageList:String[]){
+    var isPublic:Boolean;
+    if(_public=="y"||_public=="Y"){
+      isPublic=true;
+    }
+    else {isPublic=false;}
+    this.collectionService.createCollection(username,title,desc,isPublic,_imageList);
   }
-  //username:String,title:String,desc:String,_public:Boolean,_imageList:String[]
+ 
 
 }
