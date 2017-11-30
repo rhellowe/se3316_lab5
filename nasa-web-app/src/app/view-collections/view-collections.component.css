@@ -1,7 +1,7 @@
 h3{
     text-align: center;
 }
-button {
+.collection_button {
     background-color: white;
     border: none;
     color: black;
@@ -12,4 +12,8 @@ button {
     font-size: 16px;
     margin: 4px 2px;
     font-family: "Roboto", sans-serif;
+}
+.rating{
+    background-color: black;
+    display: inline-block;
 }

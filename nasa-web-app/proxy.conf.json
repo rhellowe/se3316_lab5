@@ -4,5 +4,11 @@
         "secure": false,
         "changeOrigin": true,
         "logLevel": "info"
+    },
+    "/collections/*":{
+        "target": "https://se3316-lab5-rhellowe.c9users.io:8081/api",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "info"
     }
 }

@@ -31,6 +31,14 @@ router.route("/collections")
     collection.title=req.body.title;
     collection.desc=req.body.desc;
     collection.isPublic=req.body.isPublic;
+    collection.ratingList=req.body.ratingList;
+    collection.overallRating=0;
+    for (var i=0;i<collection.ratingList.length;i++){
+        collection.overallRating=collection.overallRating+collection.ratingList[i];
+    }
+    if(collection.ratingList.length>0){
+    collection.overallRating=(collection.overallRating)/(collection.ratingList.length);
+    }
     collection.imageList=req.body.imageList;
    
     collection.save(function(err){
@@ -48,7 +56,7 @@ router.route("/collections")
                 res.send(err);}
 
             res.json(collections);
-        });
+        }).sort({overallRating:-1});
 });
 router.route("/collections/:username")
 .get(function(req,res){
@@ -61,6 +69,26 @@ router.route("/collections/:username")
     });
     
 });
+router.route("/collections/rating/:collection_id")
+   .put(function(req,res){
+       res.setHeader("Access-Control-Allow-Origin","*");
+        Collection.findById(req.params.collection_id, function(err, collection) {
+            if(err){res.send(err);}
+         collection.ratingList.push(req.body.rating);
+            collection.overallRating=0;
+    for (var i=0;i<collection.ratingList.length;i++){
+        collection.overallRating=collection.overallRating+collection.ratingList[i];
+    }
+    if(collection.ratingList.length>0){
+    collection.overallRating=(collection.overallRating)/(collection.ratingList.length);
+    }
+            collection.save(function(err) {
+                if (err){res.send(err);}
+
+                res.json({ message: 'Collection updated!' });
+            });
+    });
+    })
 router.route("/collections/:collection_id")
   .get(function(req, res) {
         Collection.findById(req.params.collection_id, function(err, collection) {
@@ -75,6 +103,7 @@ router.route("/collections/:collection_id")
             collection.title=req.body.title;
             collection.desc=req.body.desc;
             collection.isPublic=req.body.isPublic;
+            collection.imageList=req.body.imageList;
             collection.save(function(err) {
                 if (err){res.send(err);}
 

@@ -5,6 +5,8 @@ var CollectionSchema=new Schema({
     title: String,
     desc: String,
     isPublic: Boolean,
+    ratingList: [Number],
+    overallRating: Number,
     imageList: [String]
 });
 module.exports=mongoose.model("Collection",CollectionSchema);

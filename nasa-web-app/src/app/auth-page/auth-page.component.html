@@ -9,13 +9,17 @@
 <br/>
 <p>Is It Public? (Y/N): </p><input [(ngModel)]="isPublic" placeholder="(Y/N)">
 <br/>
-<button (click)="confirmCollection(this.auth.getUsername,collectionTitle,collectionDesc,isPublic,this.collection)">Confirm Collection</button>
+<button (click)="confirmCollection(this.auth.getUsername(),collectionTitle,collectionDesc,isPublic,this.collection)">Confirm Collection</button>
 <div *ngFor= "let image of images" class=image-container>
+    
     <div class="images" *ngFor="let link of image.links">
+        
         <img (click)="this.addImage(link)" src="{{link.href}}">
+        
     </div>
     <div *ngFor="let data of image.data">
         <p> Description: {{data.description}}</p>
     </div>
+    
     <br/><br/>
 </div>

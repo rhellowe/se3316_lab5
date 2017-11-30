@@ -16,7 +16,9 @@ import {CollectionService} from "./collection.service";
 import { MycollectionsComponent } from './mycollections/mycollections.component';
 import { DmcaFooterComponent } from './dmca-footer/dmca-footer.component';
 import { DmcaPolicyComponent } from './dmca-policy/dmca-policy.component';
-import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import {AuthGuard} from "./auth.guard";
+import {PrivacyPolicyComponent} from "./privacy-policy/privacy-policy.component";
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
 
 
@@ -31,7 +33,8 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
     MycollectionsComponent,
     DmcaFooterComponent,
     DmcaPolicyComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
     RouterModule,
     AppRoutingModule
   ],
-  providers: [AuthService,ImageService,CollectionService],
+  providers: [AuthService,ImageService,CollectionService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

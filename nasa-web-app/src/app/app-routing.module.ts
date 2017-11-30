@@ -7,13 +7,16 @@ import {ViewCollectionsComponent} from "./view-collections/view-collections.comp
 import {MycollectionsComponent} from "./mycollections/mycollections.component";
 import {DmcaPolicyComponent} from "./dmca-policy/dmca-policy.component";
 import {PrivacyPolicyComponent} from "./privacy-policy/privacy-policy.component";
+import {AuthGuard} from "./auth.guard";
+import {VerifyEmailComponent} from "./verify-email/verify-email.component";
 const routes: Routes = [
- {path: "logged", component: AuthPageComponent},
+ {path: "logged", component: AuthPageComponent, canActivate: [AuthGuard]},
  {path: "", component: NotLoggedPageComponent},
  {path: "viewCollections", component: ViewCollectionsComponent },
- {path: "myCollections", component: MycollectionsComponent},
+ {path: "myCollections", component: MycollectionsComponent, canActivate: [AuthGuard]},
  {path: "dmcapolicy", component:DmcaPolicyComponent},
- {path: "privacypolicy",component:PrivacyPolicyComponent}
+ {path: "privacypolicy",component:PrivacyPolicyComponent},
+ {path: "?returnUrl=%2Flogged",component: VerifyEmailComponent}
 ];
  
 @NgModule({

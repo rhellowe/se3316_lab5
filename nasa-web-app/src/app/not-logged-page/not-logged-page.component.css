@@ -5,6 +5,9 @@
 .about-container {
     text-align: center;
 }
+.about{
+    background-color:black;
+}
 button {
     background-color: white;
     border: none;

@@ -13,6 +13,7 @@ getMyCollections(username:String){
   return this._http.get(this.col_URL+username);
 }
 createCollection(cUsername,cTitle,cDesc,cIsPublic,cImageList){
+  let cRatingList=[];
   let headers=new HttpHeaders();
   headers=headers.set("Access-Control-Allow-Origin","*");
   var req= this._http.post(this.col_URL,{
@@ -20,6 +21,7 @@ createCollection(cUsername,cTitle,cDesc,cIsPublic,cImageList){
     title:cTitle,
     desc:cDesc,
     isPublic:cIsPublic,
+    ratingList:cRatingList,
     imageList:cImageList
   },{ headers: headers}).subscribe(
     res => {

@@ -9,7 +9,7 @@ import {CollectionService} from "../collection.service";
   styleUrls: ['./auth-page.component.css']
 })
 export class AuthPageComponent implements OnInit {
- images: any[];
+ images: any[]; 
  collection: String[];
 count:number;
  imagesFound: boolean=false;
@@ -18,7 +18,7 @@ count:number;
     this.collection=[];
   }
 
-searchImages(query:string){
+searchImages(query:string){ //Function to get images from nasa api
   return this._imageService.getImage(query).subscribe(
     data => this.handleSuccess(data),
     error => this.handleError(error),
@@ -29,27 +29,28 @@ searchImages(query:string){
     
   }
   
-  handleSuccess(data){
+  handleSuccess(data){ //Sets image list to the returned list of images from the nasa api
     this.imagesFound=true;
     this.images=data.collection.items;
     console.log(data.collection.items);
   }
   
-  handleError(error){
+  handleError(error){ //Log an error from the search function
     console.log(error);
   }
-  addImage(link){
+  addImage(link){ //Adds an image to the collection array 
     this.collection[this.count]=link.href;
     this.count++;
     console.log(this.collection);
   }
-  confirmCollection(username:String,title:String,desc:String,_public:String,_imageList:String[]){
+  confirmCollection(username:String,title:String,desc:String,_public:String,_imageList:String[]){ //Function that calls my api to store the collection in the database
     var isPublic:Boolean;
     if(_public=="y"||_public=="Y"){
       isPublic=true;
     }
     else {isPublic=false;}
     this.collectionService.createCollection(username,title,desc,isPublic,_imageList);
+    this.collection=[];
   }
  
 

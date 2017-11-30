@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CollectionService} from "../collection.service";
+import {AuthService} from "../auth.service";
 
 @Component({
   selector: 'app-view-collections',
@@ -9,7 +10,7 @@ import {CollectionService} from "../collection.service";
 export class ViewCollectionsComponent implements OnInit {
 collections:any[];
 clickedCollection:String[];
-  constructor(private _collectionService:CollectionService) {this.clickedCollection=[""]; this.collections=[]; }
+  constructor(private _collectionService:CollectionService, public auth:AuthService) {this.clickedCollection=[""]; this.collections=[]; }
 
   ngOnInit() {
     this.getPublicCollections();
@@ -49,5 +50,8 @@ titleClicked(id){
     return false;
   }
   else{return true;}
+}
+addRating(){
+  
 }
 }
