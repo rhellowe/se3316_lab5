@@ -1,9 +1,12 @@
 <h3>Welcome to Collections!</h3>
 
 <div *ngFor="let collection of collections" class="collection-container">
-    <button class=collection_button (click)="showCollection(collection)">{{collection.title}}</button><p class=rating>Rating: {{collection.overallRating}}</p>
+    <div *ngIf="!(isDisabled(collection._id))">
+    <button class=collection_button (click)="showCollection(collection)">{{collection.title}}</button><p class=ratingClass>Rating: {{collection.overallRating}}</p>
+    <button (click)="Report(collection._id)">Report Collection</button>
+    <div *ngIf="this.auth.isAuthenticated()">
     <div *ngIf="!(this.auth.getUsername()==collection.username)">
-    <select name="rating">
+    <select [(ngModel)]="rating" name="ratingBox">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -15,11 +18,13 @@
         <option value="9">9</option>
         <option value="10">10</option>
     </select>
-    <button>Submit Rating</button>
+    <button (click)="addRating(rating,collection._id)">Submit Rating</button>
+    </div>
     </div>
     <div *ngFor="let href of collection.imageList; let i=index">
       <div *ngIf="i<10">
         <img  *ngIf="titleClicked(collection._id)" src={{href}}>
         </div>
+    </div>
     </div>
 </div>

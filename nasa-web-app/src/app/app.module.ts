@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 import {RouterModule,Routes,Router} from "@angular/router";
-
 import { AppComponent } from './app.component';
 import { MyHeaderComponent } from './my-header/my-header.component';
 import { NotLoggedPageComponent } from './not-logged-page/not-logged-page.component';
@@ -19,7 +18,8 @@ import { DmcaPolicyComponent } from './dmca-policy/dmca-policy.component';
 import {AuthGuard} from "./auth.guard";
 import {PrivacyPolicyComponent} from "./privacy-policy/privacy-policy.component";
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
-
+import {ReportService} from "./report.service";
+import { PolicyEditComponent } from './policy-edit/policy-edit.component';
 
 
 
@@ -34,7 +34,8 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
     DmcaFooterComponent,
     DmcaPolicyComponent,
     PrivacyPolicyComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    PolicyEditComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,7 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
     RouterModule,
     AppRoutingModule
   ],
-  providers: [AuthService,ImageService,CollectionService,AuthGuard],
+  providers: [AuthService,ImageService,CollectionService,AuthGuard,ReportService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,1 +1,2 @@
 <button routerLink="dmcapolicy">DMCA Takedown Policy</button><button routerLink="privacypolicy">Privacy Policy</button>
+<button *ngIf="this.auth.getUsername()=='hellowellry@gmail.com'" routerLink="editPolicies">Edit Policies</button>

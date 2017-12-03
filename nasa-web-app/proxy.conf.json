@@ -5,7 +5,19 @@
         "changeOrigin": true,
         "logLevel": "info"
     },
-    "/collections/*":{
+    "/collections/rating/:collection_id/":{
+        "target": "https://se3316-lab5-rhellowe.c9users.io:8081/api",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "info"
+    },
+     "/policies/dmca": {
+        "target": "https://se3316-lab5-rhellowe.c9users.io:8081/api",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "info"
+    },
+     "/policies/privacy": {
         "target": "https://se3316-lab5-rhellowe.c9users.io:8081/api",
         "secure": false,
         "changeOrigin": true,

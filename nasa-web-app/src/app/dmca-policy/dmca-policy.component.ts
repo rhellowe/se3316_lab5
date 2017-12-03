@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {ReportService} from "../report.service";
 @Component({
   selector: 'app-dmca-policy',
   templateUrl: './dmca-policy.component.html',
@@ -7,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DmcaPolicyComponent implements OnInit {
 
-  constructor() { }
+  constructor(public report:ReportService) { }
 
   ngOnInit() {
   }
-
 }

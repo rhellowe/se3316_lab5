@@ -13,7 +13,7 @@ h3{
     margin: 4px 2px;
     font-family: "Roboto", sans-serif;
 }
-.rating{
+.ratingClass{
     background-color: black;
     display: inline-block;
 }

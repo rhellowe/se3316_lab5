@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CollectionService} from "../collection.service";
 import {AuthService} from "../auth.service";
-
+import {ReportService} from "../report.service";
 @Component({
   selector: 'app-view-collections',
   templateUrl: './view-collections.component.html',
@@ -10,7 +10,7 @@ import {AuthService} from "../auth.service";
 export class ViewCollectionsComponent implements OnInit {
 collections:any[];
 clickedCollection:String[];
-  constructor(private _collectionService:CollectionService, public auth:AuthService) {this.clickedCollection=[""]; this.collections=[]; }
+  constructor(private _collectionService:CollectionService, public auth:AuthService, public report:ReportService) {this.clickedCollection=[""]; this.collections=[]; }
 
   ngOnInit() {
     this.getPublicCollections();
@@ -51,7 +51,16 @@ titleClicked(id){
   }
   else{return true;}
 }
-addRating(){
-  
+addRating(rating:Number,Id:String){
+  this._collectionService.updateRating(rating,Id,this.auth.getUsername());
+}
+Report(id:String){
+  this.report.addReportedCollection(id);
+}
+isDisabled(id:String){
+  if(this.report.disabledCollections.indexOf(id)==-1){
+    return false;
+  }
+  return true;
 }
 }

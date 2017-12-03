@@ -14,7 +14,7 @@ clickedCollection:String[];
   constructor(private _collectionService:CollectionService, private auth:AuthService) {this.clickedCollection=[""]; this.collections=[]; }
 
   ngOnInit() {
-this.getMyCollections()
+this.getMyCollections();
   }
 getMyCollections(){
   console.log(this.auth.getUsername());

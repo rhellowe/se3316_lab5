@@ -7,6 +7,7 @@ var CollectionSchema=new Schema({
     isPublic: Boolean,
     ratingList: [Number],
     overallRating: Number,
+    usersRated:[String],
     imageList: [String]
 });
 module.exports=mongoose.model("Collection",CollectionSchema);

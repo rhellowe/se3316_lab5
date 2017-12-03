@@ -51,6 +51,7 @@ this.handleAuthentication();
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
+    this.username="";
     // Go back to the home route
     this.router.navigate(['/']);
   }
@@ -63,8 +64,8 @@ this.handleAuthentication();
   }
 
 public getUsername(): String {
-  return this.username;
-  }
+return this.username;
+}
 
 
 
