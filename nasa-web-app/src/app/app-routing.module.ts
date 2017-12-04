@@ -10,6 +10,7 @@ import {PrivacyPolicyComponent} from "./privacy-policy/privacy-policy.component"
 import {AuthGuard} from "./auth.guard";
 import {VerifyEmailComponent} from "./verify-email/verify-email.component";
 import {PolicyEditComponent} from "./policy-edit/policy-edit.component";
+import {FullResComponent} from "./full-res/full-res.component";
 
 const routes: Routes = [
  {path: "logged", component: AuthPageComponent, canActivate: [AuthGuard]},
@@ -18,8 +19,9 @@ const routes: Routes = [
  {path: "myCollections", component: MycollectionsComponent, canActivate: [AuthGuard]},
  {path: "dmcapolicy", component:DmcaPolicyComponent},
  {path: "privacypolicy",component:PrivacyPolicyComponent},
- {path: "editPolicies",component:PolicyEditComponent},
- {path: "?returnUrl=%2Flogged",component: VerifyEmailComponent}
+ {path: "editPolicies",component:PolicyEditComponent, canActivate: [AuthGuard]},
+ {path: "?returnUrl=%2Flogged",component: VerifyEmailComponent},
+ {path: "viewCollections/fullRes",component: FullResComponent}
 ];
  
 @NgModule({

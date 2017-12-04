@@ -17,3 +17,8 @@ h3{
     background-color: black;
     display: inline-block;
 }
+img{
+     width: 200px;
+    margin: 3px;
+    text-align: center;
+}

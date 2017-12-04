@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CollectionService} from "../collection.service";
 import {AuthService} from "../auth.service";
 import {ReportService} from "../report.service";
+import {FullResService} from "../full-res.service";
 @Component({
   selector: 'app-view-collections',
   templateUrl: './view-collections.component.html',
@@ -10,7 +11,7 @@ import {ReportService} from "../report.service";
 export class ViewCollectionsComponent implements OnInit {
 collections:any[];
 clickedCollection:String[];
-  constructor(private _collectionService:CollectionService, public auth:AuthService, public report:ReportService) {this.clickedCollection=[""]; this.collections=[]; }
+  constructor(private _collectionService:CollectionService, public auth:AuthService, public report:ReportService,public fullService:FullResService) {this.clickedCollection=[""]; this.collections=[]; }
 
   ngOnInit() {
     this.getPublicCollections();
@@ -62,5 +63,9 @@ isDisabled(id:String){
     return false;
   }
   return true;
+}
+
+fullClick(link:String){
+  this.fullService.putLink(link);
 }
 }

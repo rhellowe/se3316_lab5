@@ -67,9 +67,4 @@ public getUsername(): String {
 return this.username;
 }
 
-
-
-
-
-
 }

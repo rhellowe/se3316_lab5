@@ -18,7 +18,7 @@ count:number;
     this.collection=[];
   }
 
-searchImages(query:string){ //Function to get images from nasa api
+searchImages(query:string){ //Function to get images from nasa api 
   return this._imageService.getImage(query).subscribe(
     data => this.handleSuccess(data),
     error => this.handleError(error),
@@ -45,7 +45,7 @@ searchImages(query:string){ //Function to get images from nasa api
   }
   confirmCollection(username:String,title:String,desc:String,_public:String,_imageList:String[]){ //Function that calls my api to store the collection in the database
     var isPublic:Boolean;
-    if(_public=="y"||_public=="Y"){
+    if(_public=="y"||_public=="Y"){ //Checks the input for visibility setting, private by default
       isPublic=true;
     }
     else {isPublic=false;}

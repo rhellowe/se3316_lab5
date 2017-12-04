@@ -20,6 +20,8 @@ import {PrivacyPolicyComponent} from "./privacy-policy/privacy-policy.component"
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import {ReportService} from "./report.service";
 import { PolicyEditComponent } from './policy-edit/policy-edit.component';
+import { FullResComponent } from './full-res/full-res.component';
+import {FullResService} from "./full-res.service";
 
 
 
@@ -35,7 +37,8 @@ import { PolicyEditComponent } from './policy-edit/policy-edit.component';
     DmcaPolicyComponent,
     PrivacyPolicyComponent,
     VerifyEmailComponent,
-    PolicyEditComponent
+    PolicyEditComponent,
+    FullResComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,7 @@ import { PolicyEditComponent } from './policy-edit/policy-edit.component';
     RouterModule,
     AppRoutingModule
   ],
-  providers: [AuthService,ImageService,CollectionService,AuthGuard,ReportService],
+  providers: [AuthService,ImageService,CollectionService,AuthGuard,ReportService,FullResService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

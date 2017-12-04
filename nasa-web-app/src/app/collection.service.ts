@@ -37,6 +37,14 @@ createCollection(cUsername,cTitle,cDesc,cIsPublic,cImageList){
     );
     return req;
 }
+getDMCA(){
+  var req=this._http.get(this.dmca_URL);
+  return req;
+}
+getPrivacy(){
+  var req=this._http.get(this.privacy_URL);
+  return req;
+}
 updateDMCA(pText:String){
   let headers=new HttpHeaders();
   var req=this._http.put(this.dmca_URL,{
