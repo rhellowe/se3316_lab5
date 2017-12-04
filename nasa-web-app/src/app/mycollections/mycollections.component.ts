@@ -16,7 +16,7 @@ clickedCollection:String[];
   ngOnInit() {
 this.getMyCollections();
   }
-getMyCollections(){
+getMyCollections(){ //Calls the function from collection service that gets all collections that belong to the user
   console.log(this.auth.getUsername());
   return this._collectionService.getMyCollections(this.auth.getUsername()).subscribe(
     data => this.handleSuccess(data),
@@ -24,11 +24,11 @@ getMyCollections(){
     () => console.log("API Works")
     )
 }
-handleSuccess(data){
+handleSuccess(data){ //Sets the collections array equal to the incoming data array
   this.collections=data;
   console.log(data);
 }
-showCollection(collection){
+showCollection(collection){ 
   if(this.clickedCollection.indexOf(collection._id)==-1){ //If the collection is not showing, add it to the showing array
   this.clickedCollection.push(collection._id);
   console.log(this.clickedCollection)

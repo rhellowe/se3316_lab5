@@ -14,7 +14,7 @@ privacyPolicy:any;
     this.getPrivacyPolicy();
   }
 
-  getPrivacyPolicy(){
+  getPrivacyPolicy(){ //Function that calls the service to provide the privacy policy document
    return this.collectionService.getPrivacy().subscribe (
       data => this.privacyPolicy=data,
       err => console.log(err)

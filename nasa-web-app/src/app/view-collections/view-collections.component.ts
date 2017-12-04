@@ -66,6 +66,6 @@ isDisabled(id:String){
 }
 
 fullClick(link:String){
-  this.fullService.putLink(link);
+  this.fullService.putLink(link); //Sends the image link to be shown in full res to the full res service
 }
 }

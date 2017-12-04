@@ -9,7 +9,7 @@ private URL= this.API_URL+"search?q=";
 
   constructor(private _http:HttpClient) { }
 
-getImage(query){
+getImage(query){ //Returns images from the result of a search
     return this._http.get(this.URL+query);
 }
 }

@@ -12,10 +12,10 @@ link:any;
 
   ngOnInit() {
     this.getLink();
-    console.log(this.link);
+    console.log(this.link);  
   }
 getLink(){
-  console.log(this.fullService.getLink());
+  console.log(this.fullService.getLink()); //Sets the image link as the image that was just clicked
   this.link=this.fullService.getLink();
   
 }

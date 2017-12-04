@@ -8,7 +8,7 @@ import {AuthService} from "../auth.service";
 export class NotLoggedPageComponent implements OnInit {
 
   constructor(private authService:AuthService) { }
-  loginClick():void{
+  loginClick():void{ //Allow the login page to be viewed, to either login or signup
     this.authService.login();
   }
 

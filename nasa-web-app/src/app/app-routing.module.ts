@@ -12,7 +12,7 @@ import {VerifyEmailComponent} from "./verify-email/verify-email.component";
 import {PolicyEditComponent} from "./policy-edit/policy-edit.component";
 import {FullResComponent} from "./full-res/full-res.component";
 
-const routes: Routes = [
+const routes: Routes = [ //List of all the routes and components that can be visited on the site, including pages only allowed to logged in users
  {path: "logged", component: AuthPageComponent, canActivate: [AuthGuard]},
  {path: "", component: NotLoggedPageComponent},
  {path: "viewCollections", component: ViewCollectionsComponent },

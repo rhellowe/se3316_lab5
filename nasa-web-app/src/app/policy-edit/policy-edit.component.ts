@@ -11,10 +11,10 @@ export class PolicyEditComponent implements OnInit {
 
   ngOnInit() {
   }
-submitDMCA(text:String){
+submitDMCA(text:String){ //System admin submits a new DMCA Policy for the website
   this.colService.updateDMCA(text);
 }
-submitPrivacy(text:String){
+submitPrivacy(text:String){ //System admin submits a new Privacy Policy for the website
   this.colService.updatePrivacy(text);
 }
 }

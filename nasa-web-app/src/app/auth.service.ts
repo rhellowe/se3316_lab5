@@ -24,12 +24,12 @@ this.handleAuthentication();
     scope: 'openid profile'
   });
   
-  public handleAuthentication(): void {
+  public handleAuthentication(): void { //Function that stores the information about the user from login into local storage in the browser
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
         this.setSession(authResult);
-        this.username=authResult.idTokenPayload.name;
+        this.username=authResult.idTokenPayload.name; //Discovers the username of who is logged in
         this.router.navigate(['/logged']);
       } else if (err) {
         this.router.navigate(['/logged']);
@@ -38,7 +38,7 @@ this.handleAuthentication();
     });
   }
 
-  private setSession(authResult): void {
+  private setSession(authResult): void { //Function that handleAuthentication calls to store info in local storage
     // Set the time that the access token will expire at
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
     localStorage.setItem('access_token', authResult.accessToken);
@@ -56,7 +56,7 @@ this.handleAuthentication();
     this.router.navigate(['/']);
   }
 
-  public isAuthenticated(): boolean {
+  public isAuthenticated(): boolean { //Validates whether the user accessing the site is logged into a valid account, or at all
     // Check whether the current time is past the
     // access token's expiry time
     const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
